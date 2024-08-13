@@ -71,7 +71,3 @@ All logging functions operate similarly to the standard C `printf` function, all
 ## License
 
 Nanologger is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-This README provides an overview of Nanologger, along with installation instructions, usage examples, and the configuration needed to integrate it into a C/C++ project.
