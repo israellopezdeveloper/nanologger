@@ -1,0 +1,17 @@
+{
+  "technologies": ["C", "C++"],
+  "lang": {
+    "en": {
+      "name": "NanoLogger",
+      "desc": "A macro-based lightweight logger for C, providing minimal code impact while enabling detailed tracking of execution times and thread activity."
+    },
+    "es": {
+      "name": "NanoLogger",
+      "desc": "Logger ligero basado en macros para C, con mínimo impacto en el código y trazado detallado de tiempos de ejecución y actividad de hilos."
+    },
+    "zh": {
+      "name": "NanoLogger",
+      "desc": "基于宏的轻量级C语言日志记录器，具有最小代码影响，并提供详细的执行时间和线程活动跟踪"
+    }
+  }
+}
