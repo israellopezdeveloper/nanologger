@@ -1,8 +1,6 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#define DEBUG 3
-
 #if DEBUG >= 0
 
 #include <execinfo.h>
