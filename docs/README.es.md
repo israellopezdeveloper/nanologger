@@ -1,4 +1,4 @@
-# Biblioteca Logger
+# Biblioteca Nanologger
 
 Una biblioteca de logging portátil para proyectos en C.
 
@@ -36,28 +36,28 @@ sudo make uninstall
 Incluye el encabezado en tus archivos fuente:
 
 ```c
-#include <logger.h>
+#include <nanologger.h>
 ```
 
 Compila tu programa utilizando `pkg-config`:
 
 ```bash
-gcc mi_programa.c $(pkg-config --cflags --libs logger) -o mi_programa
+gcc mi_programa.c $(pkg-config --cflags --libs nanologger) -o mi_programa
 ```
 
 ## Niveles de Depuración
 
-Puedes controlar el nivel de logging definiendo la macro `DEBUG` antes de incluir `logger.h` o al compilar:
+Puedes controlar el nivel de logging definiendo la macro `DEBUG` antes de incluir `nanologger.h` o al compilar:
 
 ```c
 #define DEBUG 3
-#include <logger.h>
+#include <nanologger.h>
 ```
 
 O al compilar:
 
 ```bash
-gcc mi_programa.c -DDEBUG=3 $(pkg-config --cflags --libs logger) -o mi_programa
+gcc mi_programa.c -DDEBUG=3 $(pkg-config --cflags --libs nanologger) -o mi_programa
 ```
 
 ## Generación de Paquetes de Instalación
@@ -75,7 +75,7 @@ make package-arch
 Instalar el paquete:
 
 ```bash
-sudo pacman -U logger-1.0.0-1-x86_64.pkg.tar.zst
+sudo pacman -U nanologger-1.0.0-1-x86_64.pkg.tar.zst
 ```
 
 ### Debian/Ubuntu
@@ -89,7 +89,7 @@ make package-deb
 Instalar el paquete:
 
 ```bash
-sudo dpkg -i logger_1.0.0-1_amd64.deb
+sudo dpkg -i nanologger_1.0.0-1_amd64.deb
 ```
 
 ### Fedora
@@ -103,12 +103,12 @@ make package-rpm
 Instalar el paquete:
 
 ```bash
-sudo rpm -i logger-1.0.0-1.x86_64.rpm
+sudo rpm -i nanologger-1.0.0-1.x86_64.rpm
 ```
 
-## Usando la Biblioteca Logger en Proyectos con Autotools
+## Usando la Biblioteca nanologger en Proyectos con Autotools
 
-Si estás utilizando **Autotools** (`autoconf`, `automake` y `libtool`) en tu proyecto, puedes integrar la biblioteca logger siguiendo estos pasos:
+Si estás utilizando **Autotools** (`autoconf`, `automake` y `libtool`) en tu proyecto, puedes integrar la biblioteca nanologger siguiendo estos pasos:
 
 ### Paso 1: Asegurar Soporte de `pkg-config`
 
@@ -116,15 +116,15 @@ Asegúrate de que `pkg-config` esté instalado en tu sistema y que las macros `p
 
 ### Paso 2: Modificar `configure.ac`
 
-En tu archivo `configure.ac`, añade las siguientes líneas para comprobar la biblioteca logger:
+En tu archivo `configure.ac`, añade las siguientes líneas para comprobar la biblioteca nanologger:
 
 ```m4
 PKG_PROG_PKG_CONFIG
-PKG_CHECK_MODULES([LOGGER], [logger],
+PKG_CHECK_MODULES([NANOLOGGER], [nanologger],
                   [],
-                  [AC_MSG_ERROR([Biblioteca logger no encontrada. Por favor, instala la biblioteca logger.])])
-AC_SUBST([LOGGER_CFLAGS])
-AC_SUBST([LOGGER_LIBS])
+                  [AC_MSG_ERROR([Biblioteca nanologger no encontrada. Por favor, instala la biblioteca nanologger.])])
+AC_SUBST([NANOLOGGER_CFLAGS])
+AC_SUBST([NANOLOGGER_LIBS])
 ```
 
 ### Paso 3: Modificar `Makefile.am`
@@ -132,8 +132,8 @@ AC_SUBST([LOGGER_LIBS])
 En tu `Makefile.am`, utiliza las variables detectadas por `pkg-config`:
 
 ```makefile
-mi_programa_CFLAGS = @LOGGER_CFLAGS@
-mi_programa_LDADD = @LOGGER_LIBS@
+mi_programa_CFLAGS = @NANOLOGGER_CFLAGS@
+mi_programa_LDADD = @NANOLOGGER_LIBS@
 ```
 
 ### Paso 4: Regenerar el Sistema de Construcción

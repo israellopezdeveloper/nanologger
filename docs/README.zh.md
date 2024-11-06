@@ -1,4 +1,4 @@
-# 日志库（Logger Library）
+# 日志库（nanologger Library）
 
 一个用于 C 项目的可移植日志库。
 
@@ -36,28 +36,28 @@ sudo make uninstall
 在你的源文件中包含头文件：
 
 ```c
-#include <logger.h>
+#include <nanologger.h>
 ```
 
 使用 `pkg-config` 编译你的程序：
 
 ```bash
-gcc my_program.c $(pkg-config --cflags --libs logger) -o my_program
+gcc my_program.c $(pkg-config --cflags --libs nanologger) -o my_program
 ```
 
 ## 调试级别
 
-你可以在包含 `logger.h` 之前定义 `DEBUG` 宏，或者在编译时设置，以控制日志级别：
+你可以在包含 `nanologger.h` 之前定义 `DEBUG` 宏，或者在编译时设置，以控制日志级别：
 
 ```c
 #define DEBUG 3
-#include <logger.h>
+#include <nanologger.h>
 ```
 
 或者在编译时：
 
 ```bash
-gcc my_program.c -DDEBUG=3 $(pkg-config --cflags --libs logger) -o my_program
+gcc my_program.c -DDEBUG=3 $(pkg-config --cflags --libs nanologger) -o my_program
 ```
 
 ## 生成安装包
@@ -75,7 +75,7 @@ make package-arch
 安装包：
 
 ```bash
-sudo pacman -U logger-1.0.0-1-x86_64.pkg.tar.zst
+sudo pacman -U nanologger-1.0.0-1-x86_64.pkg.tar.zst
 ```
 
 ### Debian/Ubuntu
@@ -89,7 +89,7 @@ make package-deb
 安装包：
 
 ```bash
-sudo dpkg -i logger_1.0.0-1_amd64.deb
+sudo dpkg -i nanologger_1.0.0-1_amd64.deb
 ```
 
 ### Fedora
@@ -103,10 +103,10 @@ make package-rpm
 安装包：
 
 ```bash
-sudo rpm -i logger-1.0.0-1.x86_64.rpm
+sudo rpm -i nanologger-1.0.0-1.x86_64.rpm
 ```
 
-## 在使用 Autotools 的项目中使用 Logger 库
+## 在使用 Autotools 的项目中使用 nanologger 库
 
 如果你的项目使用 **Autotools**（`autoconf`、`automake` 和 `libtool`），可以按照以下步骤集成日志库：
 
@@ -120,11 +120,11 @@ sudo rpm -i logger-1.0.0-1.x86_64.rpm
 
 ```m4
 PKG_PROG_PKG_CONFIG
-PKG_CHECK_MODULES([LOGGER], [logger],
+PKG_CHECK_MODULES([NANOLOGGER], [nanologger],
                   [],
                   [AC_MSG_ERROR([未找到日志库。请安装日志库。])])
-AC_SUBST([LOGGER_CFLAGS])
-AC_SUBST([LOGGER_LIBS])
+AC_SUBST([NANOLOGGER_CFLAGS])
+AC_SUBST([NANOLOGGER_LIBS])
 ```
 
 ### 第三步：修改 `Makefile.am`
@@ -132,8 +132,8 @@ AC_SUBST([LOGGER_LIBS])
 在你的 `Makefile.am` 中，使用 `pkg-config` 检测到的变量：
 
 ```makefile
-my_program_CFLAGS = @LOGGER_CFLAGS@
-my_program_LDADD = @LOGGER_LIBS@
+my_program_CFLAGS = @NANOLOGGER_CFLAGS@
+my_program_LDADD = @NANOLOGGER_LIBS@
 ```
 
 ### 第四步：重新生成构建系统

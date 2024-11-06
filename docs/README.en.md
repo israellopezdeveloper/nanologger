@@ -1,4 +1,4 @@
-# Logger Library
+# Nanologger Library
 
 A portable logging library for C projects.
 
@@ -36,28 +36,28 @@ sudo make uninstall
 Include the header in your source files:
 
 ```c
-#include <logger.h>
+#include <nanologger.h>
 ```
 
 Compile your program using `pkg-config`:
 
 ```bash
-gcc my_program.c $(pkg-config --cflags --libs logger) -o my_program
+gcc my_program.c $(pkg-config --cflags --libs nanologger) -o my_program
 ```
 
 ## Debug Levels
 
-You can control the logging level by defining the `DEBUG` macro before including `logger.h` or at compile time:
+You can control the logging level by defining the `DEBUG` macro before including `nanologger.h` or at compile time:
 
 ```c
 #define DEBUG 3
-#include <logger.h>
+#include <nanologger.h>
 ```
 
 Or at compile time:
 
 ```bash
-gcc my_program.c -DDEBUG=3 $(pkg-config --cflags --libs logger) -o my_program
+gcc my_program.c -DDEBUG=3 $(pkg-config --cflags --libs nanologger) -o my_program
 ```
 
 ## Generating Installation Packages
@@ -75,7 +75,7 @@ make package-arch
 Install the package:
 
 ```bash
-sudo pacman -U logger-1.0.0-1-x86_64.pkg.tar.zst
+sudo pacman -U nanologger-1.0.0-1-x86_64.pkg.tar.zst
 ```
 
 ### Debian/Ubuntu
@@ -89,7 +89,7 @@ make package-deb
 Install the package:
 
 ```bash
-sudo dpkg -i logger_1.0.0-1_amd64.deb
+sudo dpkg -i nanologger_1.0.0-1_amd64.deb
 ```
 
 ### Fedora
@@ -103,12 +103,12 @@ make package-rpm
 Install the package:
 
 ```bash
-sudo rpm -i logger-1.0.0-1.x86_64.rpm
+sudo rpm -i nanologger-1.0.0-1.x86_64.rpm
 ```
 
-## Using the Logger Library in Projects with Autotools
+## Using the nanologger Library in Projects with Autotools
 
-If you are using **Autotools** (`autoconf`, `automake`, and `libtool`) in your project, you can integrate the logger library by following these steps:
+If you are using **Autotools** (`autoconf`, `automake`, and `libtool`) in your project, you can integrate the nanologger library by following these steps:
 
 ### Step 1: Ensure `pkg-config` Support
 
@@ -116,15 +116,15 @@ Make sure that `pkg-config` is installed on your system and that the `pkg.m4` ma
 
 ### Step 2: Modify `configure.ac`
 
-In your `configure.ac` file, add the following lines to check for the logger library:
+In your `configure.ac` file, add the following lines to check for the nanologger library:
 
 ```m4
 PKG_PROG_PKG_CONFIG
-PKG_CHECK_MODULES([LOGGER], [logger],
+PKG_CHECK_MODULES([NANOLOGGER], [nanologger],
                   [],
-                  [AC_MSG_ERROR([Logger library not found. Please install the logger library.])])
-AC_SUBST([LOGGER_CFLAGS])
-AC_SUBST([LOGGER_LIBS])
+                  [AC_MSG_ERROR([Nanologger library not found. Please install the nanologger library.])])
+AC_SUBST([NANOLOGGER_CFLAGS])
+AC_SUBST([NANOLOGGER_LIBS])
 ```
 
 ### Step 3: Modify `Makefile.am`
@@ -132,8 +132,8 @@ AC_SUBST([LOGGER_LIBS])
 In your `Makefile.am`, use the variables detected by `pkg-config`:
 
 ```makefile
-my_program_CFLAGS = @LOGGER_CFLAGS@
-my_program_LDADD = @LOGGER_LIBS@
+my_program_CFLAGS = @NANOLOGGER_CFLAGS@
+my_program_LDADD = @NANOLOGGER_LIBS@
 ```
 
 ### Step 4: Regenerate the Build System
