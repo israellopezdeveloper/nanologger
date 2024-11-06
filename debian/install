@@ -1,0 +1,5 @@
+lib/liblogger.a usr/lib
+lib/liblogger.so usr/lib
+include/logger.h usr/include
+pkgconfig/logger.pc usr/lib/pkgconfig
+

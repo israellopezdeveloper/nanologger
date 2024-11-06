@@ -1,0 +1,6 @@
+logger (1.0.0-1) unstable; urgency=medium
+
+  * Versión inicial.
+
+ -- Israel López <israel.lopez.developer@gmail.com>  $(date -R)
+
