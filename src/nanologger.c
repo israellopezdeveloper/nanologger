@@ -1,4 +1,4 @@
-#include "logger.h"
+#include "nanologger.h"
 
 #if DEBUG >= 0
 

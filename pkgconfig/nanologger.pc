@@ -3,9 +3,9 @@ exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
-Name: logger
+Name: nanologger
 Description: Portable logging library for C
 Version: 1.0.0
-Libs: -L${libdir} -llogger
+Libs: -L${libdir} -lnanologger
 Cflags: -I${includedir}
 

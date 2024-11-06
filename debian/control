@@ -1,13 +1,12 @@
-Source: logger
+Source: nanologger
 Section: libs
 Priority: optional
 Maintainer: Israel López <israel.lopez.developer@gmail.com>
 Standards-Version: 4.5.0
 Build-Depends: debhelper (>= 9)
 
-Package: logger
+Package: nanologger
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Una biblioteca de logging portátil para proyectos en C
- Una descripción más detallada de tu biblioteca.
+Description: A portable logging library for C projects.
 

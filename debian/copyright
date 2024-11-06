@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: logger
+Upstream-Name: nanologger
 Upstream-Contact: Israel López <israel.lopez.developer@gmail.com>
 Source: https://github.com/israellopezdeveloper/nanologger
 

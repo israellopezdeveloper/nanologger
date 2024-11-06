@@ -1,5 +1,5 @@
-#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef NANOLOGGER_H
+#define NANOLOGGER_H
 
 // Nivel de depuración por defecto si no se define
 #ifndef DEBUG
@@ -98,5 +98,4 @@ void log_debug(const char *file, int line, const char *func, const char *fmt,
 
 #endif // DEBUG >= 0
 
-#endif // LOGGER_H
-
+#endif // NANOLOGGER_H
