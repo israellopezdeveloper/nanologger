@@ -1,0 +1,44 @@
+.TH log_warn 3 "Noviembre 2024" "nanologger 1.0.0" "Manual de funciones de biblioteca"
+.SH NOMBRE
+log_warn \- Registrar un mensaje de advertencia.
+
+.SH SINOPSIS
+.B #include <nanologger.h>
+.br
+.BI "void log_warn(const char *file, int line, const char *func, const char *fmt, ...);"
+
+.SH DESCRIPCIÓN
+La función
+.B log_warn
+registra un mensaje de advertencia. Esta función es útil para reportar posibles problemas que no detienen el programa.
+
+La función acepta los siguientes parámetros:
+.TP
+.I file
+El nombre del archivo fuente donde ocurrió la advertencia.
+.TP
+.I line
+El número de línea en el archivo fuente donde ocurrió la advertencia.
+.TP
+.I func
+El nombre de la función donde ocurrió la advertencia.
+.TP
+.I fmt
+Una cadena de formato estilo printf, seguida de los argumentos adicionales necesarios.
+
+.SH VALOR DE RETORNO
+Esta función no devuelve ningún valor.
+
+.SH NOTAS
+Esta función solo está disponible si la macro
+.B DEBUG
+se establece en 2 o superior.
+
+.SH AUTOR
+Escrito por Israel López.
+
+.SH VER TAMBIÉN
+.BR log_critical (3),
+.BR log_error (3),
+.BR log_debug (3)
+

@@ -31,6 +31,9 @@ make DESTDIR=%{buildroot} PREFIX=/usr install
 /usr/lib/libnanologger.so
 /usr/include/nanologger.h
 /usr/lib/pkgconfig/nanologger.pc
+/usr/share/man/man3/*.3
+/usr/share/man/man3.es/*.3
+/usr/share/man/man3.zh/*.3
 
 %changelog
 * Wed Nov 06 2024 Israel López <israel.lopez.developer@gmail.com> - 1.0.0-1
