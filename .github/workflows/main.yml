@@ -10,7 +10,7 @@ jobs:
     name: Generate Debian package
     runs-on: ubuntu-latest
     container:
-      image: make-gcc:debian-bookworm_GCC-14_20241125194634
+      image: lopoeisr/make-gcc:debian-bookworm_GCC-14_20241125194634
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
     name: Generate Arch package
     runs-on: ubuntu-latest
     container:
-      image: arch-make:arch-20241125194634
+      image: lopoeisr/arch-make:arch-20241125194634
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
     name: Generate RPM package
     runs-on: ubuntu-latest
     container:
-      image: rpm-make:fedora-41_20241125194634
+      image: lopoeisr/rpm-make:fedora-41_20241125194634
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
