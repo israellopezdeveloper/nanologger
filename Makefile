@@ -9,7 +9,7 @@ MAN3DIR = $(MANDIR)/man3
 CC = gcc
 AR = ar
 RANLIB = ranlib
-CFLAGS = -fPIC -Wall -Wextra -O2 -g
+CFLAGS = -fPIC -Wall -Wextra -O2
 LDFLAGS = -shared
 INCLUDES = -Iinclude
 
@@ -44,8 +44,8 @@ install: all
 	@mkdir -p $(DESTDIR)$(INCLUDEDIR)
 	@mkdir -p $(DESTDIR)$(PKGCONFIGDIR)
 	@mkdir -p $(DESTDIR)$(MAN3DIR)
-	@install -m 0755 $(LIB_STATIC) $(DESTDIR)$(LIBDIR)
-	@install -m 0755 $(LIB_SHARED) $(DESTDIR)$(LIBDIR)
+	@install -m 0644 $(LIB_STATIC) $(DESTDIR)$(LIBDIR)
+	@install -m 0644 $(LIB_SHARED) $(DESTDIR)$(LIBDIR)
 	@install -m 0644 $(HEADER) $(DESTDIR)$(INCLUDEDIR)
 	@install -m 0644 $(PKGCONFIG) $(DESTDIR)$(PKGCONFIGDIR)
 	# Instalar páginas man en inglés
@@ -69,9 +69,9 @@ uninstall:
 clean:
 	@rm -f $(OBJ) $(LIB_STATIC) $(LIB_SHARED)
 	@rm -rf pkg build
-	@rm -rf nanologger-*.pkg.tar.zst
-	@rm -rf nanologger-*.deb
-	@rm -rf nanologger-*.rpm
+	@rm -rf nanologger*.pkg.tar.zst
+	@rm -rf nanologger*.deb
+	@rm -rf nanologger*.rpm
 
 # Objetivos para paquetes
 package: package-arch package-deb package-rpm
@@ -93,7 +93,7 @@ package-deb:
 	@mv pkg/*.deb .
 
 # Paquete para Fedora
-package-rpm:
+package-rpm: all
 	@echo "Generando paquete para Fedora..."
 	@mkdir -p pkg/rpm/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 	@tar czf pkg/rpm/SOURCES/nanologger-1.0.0.tar.gz --exclude='./pkg/rpm/SOURCES/nanologger-1.0.0.tar.gz' --transform "s/^\./nanologger-1.0.0/" .

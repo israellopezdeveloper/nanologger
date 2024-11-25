@@ -1,7 +1,5 @@
 #include "nanologger.h"
 
-#if DEBUG >= 0
-
 #include <execinfo.h>
 #include <libgen.h>
 #include <pthread.h>
@@ -56,8 +54,6 @@ void log_critical(const char *file, int line, const char *func, const char *fmt,
   free(addresses);
 }
 
-#if DEBUG >= 1
-
 void log_error(const char *file, int line, const char *func, const char *fmt,
                ...) {
   struct timespec timespec;
@@ -100,8 +96,6 @@ void log_error(const char *file, int line, const char *func, const char *fmt,
   free(addresses);
 }
 
-#if DEBUG >= 2
-
 void log_warn(const char *file, int line, const char *func, const char *fmt,
               ...) {
   struct timespec timespec;
@@ -143,8 +137,6 @@ void log_warn(const char *file, int line, const char *func, const char *fmt,
 
   free(addresses);
 }
-
-#if DEBUG >= 3
 
 void log_init(const char *file, int line, const char *func, const char *fmt,
               ...) {
@@ -271,8 +263,3 @@ void log_debug(const char *file, int line, const char *func, const char *fmt,
 
   free(addresses);
 }
-
-#endif // DEBUG >= 3
-#endif // DEBUG >= 2
-#endif // DEBUG >= 1
-#endif // DEBUG >= 0
