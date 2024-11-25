@@ -1,0 +1,8 @@
+lib/libnanologger.a usr/lib
+lib/libnanologger.so usr/lib
+include/nanologger.h usr/include
+pkgconfig/nanologger.pc usr/lib/pkgconfig
+man/man3/*.3 usr/share/man/man3
+man/man3.es/*.3 usr/share/man/man3.es
+man/man3.zh/*.3 usr/share/man/man3.zh
+

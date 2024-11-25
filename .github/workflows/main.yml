@@ -1,0 +1,54 @@
+name: CI Main Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  debian:
+    name: Generate Debian package
+    runs-on: ubuntu-latest
+    container:
+      image: make-gcc:debian-bookworm_GCC-14_20241125194634
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Create package
+      run: make && make package-deb
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: nanologger.deb
+        path: "*.deb"
+  arch:
+    name: Generate Arch package
+    runs-on: ubuntu-latest
+    container:
+      image: arch-make:arch-20241125194634
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Create package
+      run: make && make package-arch
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: nanologger.pkg.tar.zst
+        path: "*.pkg.tar.zst"
+  rpm:
+    name: Generate RPM package
+    runs-on: ubuntu-latest
+    container:
+      image: rpm-make:fedora-41_20241125194634
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Create package
+      run: make && make package-rpm
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: nanologger.rpm
+        path: "*.rpm"
+

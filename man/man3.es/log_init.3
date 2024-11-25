@@ -1,0 +1,43 @@
+.TH log_init 3 "Noviembre 2024" "nanologger 1.0.0" "Manual de funciones de biblioteca"
+.SH NOMBRE
+log_init \- Registrar la inicialización de un proceso o recurso.
+
+.SH SINOPSIS
+.B #include <nanologger.h>
+.br
+.BI "void log_init(const char *file, int line, const char *func, const char *fmt, ...);"
+
+.SH DESCRIPCIÓN
+La función
+.B log_init
+registra la inicialización de un proceso o recurso.
+
+La función acepta los siguientes parámetros:
+.TP
+.I file
+El nombre del archivo fuente donde ocurrió la inicialización.
+.TP
+.I line
+El número de línea en el archivo fuente donde ocurrió la inicialización.
+.TP
+.I func
+El nombre de la función donde ocurrió la inicialización.
+.TP
+.I fmt
+Una cadena de formato estilo printf, seguida de los argumentos adicionales necesarios.
+
+.SH VALOR DE RETORNO
+Esta función no devuelve ningún valor.
+
+.SH NOTAS
+Esta función solo está disponible si la macro
+.B DEBUG
+se establece en 3 o superior.
+
+.SH AUTOR
+Escrito por Israel López.
+
+.SH VER TAMBIÉN
+.BR log_end (3),
+.BR log_debug (3)
+

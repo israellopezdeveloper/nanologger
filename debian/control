@@ -1,0 +1,12 @@
+Source: nanologger
+Section: libs
+Priority: optional
+Maintainer: Israel López <israel.lopez.developer@gmail.com>
+Standards-Version: 4.5.0
+Build-Depends: debhelper (>= 9)
+
+Package: nanologger
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A portable logging library for C projects.
+

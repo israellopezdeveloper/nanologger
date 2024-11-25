@@ -1,0 +1,44 @@
+.TH log_critical 3 "November 2024" "nanologger 1.0.0" "Library Functions Manual"
+.SH NAME
+log_critical \- Log a critical error message.
+
+.SH SYNOPSIS
+.B #include <nanologger.h>
+.br
+.BI "void log_critical(const char *file, int line, const char *func, const char *fmt, ...);"
+
+.SH DESCRIPTION
+The
+.B log_critical
+function logs a critical error message, typically used for severe errors that may require the program to exit.
+
+The function accepts the following parameters:
+.TP
+.I file
+The name of the source file where the error occurred.
+.TP
+.I line
+The line number in the source file where the error occurred.
+.TP
+.I func
+The name of the function where the error occurred.
+.TP
+.I fmt
+A printf-style format string, followed by additional arguments as needed.
+
+.SH RETURN VALUE
+This function does not return a value.
+
+.SH NOTES
+This function is only available if the
+.B DEBUG
+macro is set to 0 or higher.
+
+.SH AUTHOR
+Written by Israel López.
+
+.SH SEE ALSO
+.BR log_error (3),
+.BR log_warn (3),
+.BR log_debug (3)
+

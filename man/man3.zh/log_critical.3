@@ -1,0 +1,43 @@
+.TH log_critical 3 "2024年11月" "nanologger 1.0.0" "库函数手册"
+.SH 名称
+log_critical \- 记录一个严重错误消息。
+
+.SH 概述
+.B #include <nanologger.h>
+.br
+.BI "void log_critical(const char *file, int line, const char *func, const char *fmt, ...);"
+
+.SH 描述
+.B log_critical
+函数记录一个严重错误消息，通常用于可能需要程序退出的严重错误。
+
+该函数接受以下参数：
+.TP
+.I file
+发生错误的源文件名称。
+.TP
+.I line
+发生错误的源文件中的行号。
+.TP
+.I func
+发生错误的函数名称。
+.TP
+.I fmt
+一个printf风格的格式字符串，后跟所需的其他参数。
+
+.SH 返回值
+该函数没有返回值。
+
+.SH 注意
+只有在
+.B DEBUG
+宏设置为0或更高时，此函数才可用。
+
+.SH 作者
+由Israel López编写。
+
+.SH 参见
+.BR log_error (3),
+.BR log_warn (3),
+.BR log_debug (3)
+
