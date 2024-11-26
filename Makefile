@@ -84,6 +84,7 @@ package-arch:
 	 cp -r include src pkgconfig man PKGBUILD LICENSE README.md Makefile pkg/arch/
 	@(cd pkg/arch && makepkg -cf)
 	@mv pkg/arch/*.pkg.tar.zst .
+	@rm nanologger-debug*.pkg.tar.zst
 
 # Paquete para Debian/Ubuntu
 package-deb:
