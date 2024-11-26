@@ -29,14 +29,13 @@ jobs:
       image: lopoeisr/arch-make:arch-20241126103520
       options: --user root
     steps:
-    - name: Fix permissions
-      run: |
-          sudo chown -R developer:developer /app
     - name: Checkout code
       uses: actions/checkout@v4
+    - name: Fix permissions
+      run: |
+          sudo chown -R developer:developer /__w
     - name: Create package
       run: |
-          pwd
           sudo -u developer make 
           sudo -u developer make package-arch
     - name: Upload artifact
