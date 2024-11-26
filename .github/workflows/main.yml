@@ -41,6 +41,9 @@ jobs:
           sudo chmod -R 777 /home/runner/work/_temp
     - name: Create package
       run: |
+          pwd
+          whoami
+          ls -l /home/runner/work/_temp/_github_workflow/event.json
           sudo -u developer make 
           sudo -u developer make package-arch
     - name: Upload artifact
