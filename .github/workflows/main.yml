@@ -31,6 +31,11 @@ jobs:
     - name: Fix permissions
       run: |
           sudo chown -R developer:developer /__w && sudo chmod -R 777 /__w/
+    - name: Debug environment
+      run: |
+        whoami
+        id
+        ls -ld /__w
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Create package
