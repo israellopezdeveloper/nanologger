@@ -35,7 +35,6 @@ jobs:
       run: |
           pwd
           whoami
-          ls -l /home/runner/work/_temp/_github_workflow/event.json
           sudo -u developer make 
           sudo -u developer make package-arch
     - name: Upload artifact
