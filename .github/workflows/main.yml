@@ -34,6 +34,7 @@ jobs:
     - name: Fix permissions
       run: |
           sudo chown -R developer:developer /__w
+          sudo mkdir -p /home/runner
           sudo chmod -R 777 /home/runner
     - name: Create package
       run: |
