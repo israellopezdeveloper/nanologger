@@ -96,6 +96,8 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: nanologger.rpm
+    - name: list
+      run: ls -l
     - name: Upload Arch package to Release
       uses: actions/upload-release-asset@v1
       env:
