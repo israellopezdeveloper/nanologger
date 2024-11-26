@@ -31,14 +31,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Fix permissions
-      run: |
-          sudo chown -R developer:developer /__w
-          sudo mkdir -p /home/runner/work/_temp/_github_workflow/
-          sudo touch /home/runner/work/_temp/_github_workflow/event.json
-          sudo chmod -R 777 /home/runner
-          sudo chown -R $(whoami) /home/runner/work/_temp
-          sudo chmod -R 777 /home/runner/work/_temp
     - name: Create package
       run: |
           pwd
