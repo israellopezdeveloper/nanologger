@@ -31,8 +31,7 @@ jobs:
     steps:
     - name: Fix permissions
       run: |
-          sudo chown -R developer:developer /__w
-          sudo chmod -R 777 /__w/
+          sudo chown -R developer:developer /app
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Create package
