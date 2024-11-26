@@ -1,7 +1,7 @@
 # Maintainer: Israel López <israel.lopez.developer@gmail.com>
 
 pkgname=nanologger
-pkgver=1.0.0
+pkgver=1.0.2
 pkgrel=1
 pkgdesc="A portable logging library for C projects"
 arch=('x86_64')

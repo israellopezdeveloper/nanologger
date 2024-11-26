@@ -80,7 +80,8 @@ package: package-arch package-deb package-rpm
 package-arch:
 	@echo "Generando paquete para Arch Linux..."
 	@mkdir -p pkg/arch
-	@cp -r include src pkgconfig man PKGBUILD LICENSE README.md Makefile pkg/arch/
+	@sed -i "s/pkgver=.*/pkgver=$$(cat version.txt)/" PKGBUILD && \
+	 cp -r include src pkgconfig man PKGBUILD LICENSE README.md Makefile pkg/arch/
 	@(cd pkg/arch && makepkg -cf)
 	@mv pkg/arch/*.pkg.tar.zst .
 
@@ -88,6 +89,7 @@ package-arch:
 package-deb:
 	@echo "Generando paquete para Debian/Ubuntu..."
 	@mkdir -p pkg/debian
+	@sed -i "1s/(.*)/($$(cat version.txt))/" debian/changelog
 	@cp -r include src pkgconfig man debian LICENSE README.md Makefile pkg/debian/
 	@(cd pkg/debian && dpkg-buildpackage -us -uc)
 	@mv pkg/*.deb .
@@ -96,7 +98,8 @@ package-deb:
 package-rpm: all
 	@echo "Generando paquete para Fedora..."
 	@mkdir -p pkg/rpm/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-	@tar czf pkg/rpm/SOURCES/nanologger-1.0.0.tar.gz --exclude='./pkg/rpm/SOURCES/nanologger-1.0.0.tar.gz' --transform "s/^\./nanologger-1.0.0/" .
+	@sed -i "s/\(Version:[ ]*\).*/\1$$(cat version.txt)/" nanologger.spec
+	@tar czf pkg/rpm/SOURCES/nanologger-$$(cat version.txt).tar.gz --exclude='./pkg/rpm/SOURCES/*.tar.gz' --transform "s/^\./nanologger-$$(cat version.txt)/" .
 	@cp -r include src pkgconfig man LICENSE README.md Makefile pkg/rpm/SOURCES/
 	@cp nanologger.spec pkg/rpm/SPECS/
 	@(cd pkg/rpm && rpmbuild --define "_topdir $(PWD)/pkg/rpm" -bb SPECS/nanologger.spec)
