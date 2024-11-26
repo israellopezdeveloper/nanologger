@@ -30,7 +30,7 @@ jobs:
     steps:
     - name: Fix permissions
       run: |
-        chmod -R 777 /__w/_temp
+        sudo chmod -R 777 /__w/_temp
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Create package
