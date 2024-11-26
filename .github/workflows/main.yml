@@ -33,8 +33,7 @@ jobs:
       uses: actions/checkout@v4
     - name: Create package
       run: |
-          pwd
-          whoami
+          sudo chown -R developer:developer .
           sudo -u developer make 
           sudo -u developer make package-arch
     - name: Upload artifact
