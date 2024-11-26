@@ -70,7 +70,6 @@ jobs:
         recursive: true
     - name: Get version number
       run: |
-        autoreconf --install
         echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
     - name: Create GitHub Release
       id: create_release
