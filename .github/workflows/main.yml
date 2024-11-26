@@ -3,7 +3,7 @@ name: CI Main Branch
 on:
   push:
     branches:
-      - main
+      - '**'
 
 jobs:
   debian:
@@ -28,6 +28,9 @@ jobs:
     container:
       image: lopoeisr/arch-make:arch-20241126103520
     steps:
+    - name: Fix permissions
+      run: |
+        chmod -R 777 /__w/_temp
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Create package
