@@ -18,7 +18,7 @@ jobs:
     - name: Create package
       run: make && make package-deb
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: nanologger.deb
         path: "*.deb"
@@ -37,7 +37,7 @@ jobs:
           sudo -u developer make 
           sudo -u developer make package-arch
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: nanologger.pkg.tar.zst
         path: "*.pkg.tar.zst"
@@ -53,7 +53,7 @@ jobs:
     - name: Create package
       run: make && make package-rpm
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: nanologger.rpm
         path: "*.rpm"
